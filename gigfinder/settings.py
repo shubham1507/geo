@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&da@gxm6t1k(++4*(h4d$&h!yg8o36l&@q=ev^m%d&aea3q$^#'
+SECRET_KEY = 'g5e%75%q9p*^*cu+r1%0(q9rs+k4cb!wzow2+a!#0wdfe*bla3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
+    'gigs',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +82,16 @@ DATABASES = {
     }
 }
 
-
+DATABASES = {
+    'default': {
+         'ENGINE': 'django.contrib.gis.db.backends.postgis',
+         'NAME': 'gigfinder',
+         'USER': 'giguser',
+         'PASSWORD': 'password',
+          'HOST': '127.0.0.1',
+          'PORT': '5433',
+    },
+}
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
